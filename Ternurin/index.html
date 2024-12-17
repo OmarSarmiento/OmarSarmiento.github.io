@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTA TERNURIN</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            text-align: center;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 0;
+            font-size: 1.5em;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            margin: 0 15px;
+            font-size: 1em;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin: 20px 0;
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #e55b50;
+            transform: scale(1.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>¿Quieres ser mi novia?</h1>
+        <nav>
+            <a href="#" id="home-link">Inicio</a>
+            <a href="#pregunta">La Gran Pregunta</a>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Introducción -->
+        <section id="inicio">
+            <h2>¡Hola!</h2>
+            <p>Desde hace un tiempo, hay algo que quiero decirte...</p>
+            <img src="IMG-20241214-WA0037.jpg" alt="Imagen romántica">
+            <p>Pero primero, quiero que sepas que cada momento contigo es especial. ❤️</p>
+            <div class="heart" style="font-size: 5em; color: red;">❤</div>
+            <button id="reveal">Haz clic aquí</button>
+        </section>
+
+        <!-- Pregunta principal -->
+        <section id="pregunta" class="hidden">
+            <h2>La Gran Pregunta</h2>
+            <p>¿Quieres ser mi novia? 💕</p>
+            <button id="yes">Sí 💖</button>
+            <button id="no">No 😢</button>
+        </section>
+
+        <!-- Videos -->
+        <section id="videos">
+            <h2>GRACIAS POR LLEGAR A MI VIDA🎥</h2>
+            
+            <!-- Primer video -->
+            <video controls>
+                <source src="VID-20241216-WA0016.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <p>MIRA NOMAS ESTA HERMOSURA</p>
+            
+            <!-- Segundo video -->
+            <video controls>
+                <source src="lv_7422631205704617221_20241215214046.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <p>BESOTES PRECIOSA🥰</p>
+        </section>
+
+        <!-- Respuesta -->
+        <section id="respuesta" class="hidden">
+            <img src="leonel-messi-y-cristiano-ronaldo-se-enfrentaron-QKJ62QWHIJGDNMRFMP6OW6CYB4.avif" alt="Imagen para la respuesta">
+            <h2 id="respuesta-texto"></h2>
+            <button id="volver">Volver al inicio</button>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>Creado con ❤️ para mi princesa ternurin</p>
+    </footer>
+
+    <script>
+        // Selección de elementos
+        const revealButton = document.getElementById('reveal');
+        const preguntaSection = document.getElementById('pregunta');
+        const respuestaSection = document.getElementById('respuesta');
+        const respuestaTexto = document.getElementById('respuesta-texto');
+        const volverButton = document.getElementById('volver');
+        const yesButton = document.getElementById('yes');
+        const noButton = document.getElementById('no');
+        const homeLink = document.getElementById('home-link');
+
+        // Mostrar la pregunta principal
+        revealButton.addEventListener('click', () => {
+            document.getElementById('inicio').classList.add('hidden');
+            preguntaSection.classList.remove('hidden');
+        });
+
+        // Respuesta "Sí"
+        yesButton.addEventListener('click', () => {
+            respuestaTexto.textContent = "¡Me has hecho la persona más feliz del mundo! ❤️🥳";
+            respuestaSection.querySelector('img').src = "ruta-de-la-imagen-felicidad.jpg"; // Imagen para "Sí"
+            preguntaSection.classList.add('hidden');
+            respuestaSection.classList.remove('hidden');
+        });
+
+        // Respuesta "No"
+        noButton.addEventListener('click', () => {
+            respuestaTexto.textContent = "Está bien, pero aún así pienso que eres increíble. 😊";
+            respuestaSection.querySelector('img').src = "ruta-de-la-imagen-triste.jpg"; // Imagen para "No"
+            preguntaSection.classList.add('hidden');
+            respuestaSection.classList.remove('hidden');
+        });
+
+        // Regresar al inicio
+        volverButton.addEventListener('click', () => {
+            location.reload(); // Recargar la página para reiniciar
+        });
+
+        // Enlace para regresar al inicio
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            location.reload();
+        });
+    </script>
+</body>
+</html>
+
